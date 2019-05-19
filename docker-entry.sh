@@ -15,7 +15,7 @@ EOF
 
 if [ "$1" = 'named' ]; then
   echo "Starting named..."
-  exec $(which named) -g
+  exec /usr/sbin/named -g
 else
   exec "$@"
 fi

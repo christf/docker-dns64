@@ -1,6 +1,6 @@
 FROM debian
 
-ENV DNS64_PREFIX='2a00:1508:6001:efff::/96' \
+ENV DNS64_PREFIX='64:ff9b::/96' \
     DNS64_IP6_LISTEN='any' \
     DNS64_LISTEN='any'
 
@@ -12,4 +12,4 @@ ENTRYPOINT ["/docker-entry.sh"]
 
 EXPOSE 53/udp 53/tcp
 
-CMD ['named']
+CMD ["/docker-entry.sh /usr/sbin/named"]
