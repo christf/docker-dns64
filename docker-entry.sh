@@ -8,15 +8,10 @@ options {
         listen-on { ${DNS64_LISTEN}; };
         allow-query { any; };
         dns64 ${DNS64_PREFIX} {
-                clients { any; };
+                clients { ${CLIENT_ACL}; };
         };
 };
 EOF
 
-if [ "$1" = 'named' ]; then
-  echo "Starting named..."
-  exec /usr/sbin/named -g
-else
-  exec "$@"
-fi
+exec /usr/sbin/named -g
 
