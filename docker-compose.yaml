@@ -1,0 +1,18 @@
+# docker run --env-file ./dns64-env -p 127.0.0.1:53:53/tcp -p 127.0.0.1:53:53/udp oondeo/dns64 named
+version: "2.1"
+services:
+  dns64:
+    image: klausdieter371/docker-dns64
+    network_mode: "host"
+#    privileged: true
+#    cap_add:
+#      - NET_ADMIN
+#    devices:
+#      - /dev/net/tun:/dev/net/tun
+#    sysctls:
+#      - net.ipv6.conf.all.forwarding=1
+#      - net.ipv6.conf.all.accept_redirects=0
+#      - net.ipv4.conf.all.rp_filter=0
+    restart: unless-stopped
+    env_file: /root/docker-dns64/dns64-env
+
