@@ -13,5 +13,12 @@ options {
 };
 EOF
 
+cat > /etc/bind/named.conf.local <<EOF
+zone "ffmd" IN {
+    type forward;
+        forwarders {fda9:26e:5805::9};
+};
+EOF
+
 exec /usr/sbin/named -g
 
