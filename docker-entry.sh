@@ -16,7 +16,7 @@ EOF
 cat > /etc/bind/named.conf.local <<EOF
 zone "ffmd" IN {
     type forward;
-        forwarders {fda9:26e:5805::9; };
+        forwarders {fda9:26e:5805:bab1:53::0; };
 };
 EOF
 
